@@ -1,0 +1,122 @@
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+  
+.main {
+    width: 100%;
+}
+  
+.section1 {
+    height: 100vh;
+    background-color: #F4CE14;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: #000;
+    scroll-snap-align: start;
+    overflow: hidden;
+}
+
+.section1-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    transform: translateY(100%);
+    animation: slideDown 1.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+@keyframes slideDown {
+    to {
+        transform: translateY(0);
+    }
+}
+  
+.text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    flex: 1;
+}
+
+.text-container h1 {
+    font-size: 3.8rem;
+}
+
+.skillRow {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.jsLogo {
+    width: 45px;
+    height: 45px;
+    padding-bottom: 5px;
+}
+
+.pyLogo {
+    width: 40px;
+    height: 40px;
+}
+  
+.image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.image-container img {
+    max-width: 100%;
+    height: auto;
+}
+
+.marginBottumA {
+    margin-bottom: 20px;
+}
+
+.marginBottumB {
+    margin-bottom: 120px;
+}
+
+.section3 {
+    height: 100vh;
+    background-color: #F5F7F8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: #000;
+    scroll-snap-align: start;
+}
+
+.section3-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+}
+
+.scrapeTool {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.section {
+    height: 100vh;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: #000;
+    scroll-snap-align: start;
+}
