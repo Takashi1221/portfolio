@@ -1,5 +1,5 @@
 import { NextPage } from 'next';
-
+import Image from 'next/image';
 import Head from 'next/head';
 import Header from '../components/Header';
 import DataFetcher from '../components/DataFetcher';
@@ -31,18 +31,18 @@ const Home: NextPage = () => {
                 <p className={styles.marginBottumA}>Skills</p>
                 <p>Frontend:</p>
                 <p className={`${styles.marginBottumA} ${styles.skillRow}`}>
-                  <img src="/icons8-javascript-50.png" alt="js-logo" className={styles.jsLogo} />
+                  <Image src="/icons8-javascript-50.png" alt="js-logo" className={styles.jsLogo} width={50} height={50} />
                   <span>React (Next.js)</span>
                 </p>
                 <p>Backend:</p>
                 <p className={styles.skillRow}>
-                  <img src="/icons8-python-26.png" alt="py-logo" className={styles.pyLogo} />
+                  <Image src="/icons8-python-26.png" alt="py-logo" className={styles.pyLogo} width={26} height={26} />
                   <span>Python (Django, Flask)</span>
                 </p>
               </div>
             </div>
             <div className={styles['image-container']}>
-              <img src="/portfolioimage.png" alt="Portfolio" />
+              <Image src="/portfolioimage.png" alt="Portfolio" width={600} height={600} />
             </div>
           </div>
         </section>
@@ -53,7 +53,7 @@ const Home: NextPage = () => {
           <div className={styles['section3-content']}>
             <div className={styles['text-container']}>
               <h1>Python Tools</h1>
-              <p>This table is automatically updated daily by scraping the Oricon (Japan's music ranking) daily singles chart.</p>
+              <p>This table is automatically updated daily by scraping the Oricon (Japan&apos;s music ranking) daily singles chart.</p>
               <p>It is a simple setup using only the BeautifulSoup4 and Requests libraries. For tasks requiring browser operations such as logging in, I use Selenium or Pyppeteer.</p>
               <p>The data is fetched by a Python script running on AWS Lambda, which saves the results as a CSV file in S3 for display.</p>
             </div>

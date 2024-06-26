@@ -49,13 +49,16 @@ const DataFetcher: React.FC<DataFetcherProps> = ({ children }) => {
 
                 try {
                     const data = await s3.getObject(params).promise();
-                    const csvData = data.Body.toString('utf-8');
-                    const jsonData = await csv().fromString(csvData);
-                    setData(jsonData);
-                    setLoading(false);
+                    if (data.Body) {
+                        const csvData = data.Body.toString('utf-8');
+                        const jsonData = await csv().fromString(csvData);
+                        setData(jsonData);
+                        setLoading(false);
+                        return true; // 成功したことを示すためにtrueを返す
+                    }
                 } catch (error) {
                     console.error(`Error fetching data from S3 for file ${fileName}:`, error);
-                    return null;
+                    return false; // 失敗したことを示すためにfalseを返す
                 }
             };
 
