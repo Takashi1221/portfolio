@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import AWS from 'aws-sdk';
 import csv from 'csvtojson';
 
 interface DataFetcherProps {
@@ -31,33 +30,25 @@ const DataFetcher: React.FC<DataFetcherProps> = ({ children }) => {
 
     useEffect(() => {
         const fetchData = async () => {
-            // AWS SDKの設定
-            AWS.config.update({
-                region: 'eu-central-1',
-                accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-                secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-            });
-
-            const s3 = new AWS.S3();
             const [todayFileName, yesterdayFileName] = getFileName();
 
             const fetchFile = async (fileName: string) => {
-                const params = {
-                    Bucket: 'scrape-portfolio',
-                    Key: fileName,
-                };
-
+                const url = `https://scrape-portfolio.s3.eu-central-1.amazonaws.com/${fileName}`;
+        
                 try {
-                    const data = await s3.getObject(params).promise();
-                    if (data.Body) {
-                        const csvData = data.Body.toString('utf-8');
+                    const response = await fetch(url);
+                    if (response.ok) {
+                        const csvData = await response.text();
                         const jsonData = await csv().fromString(csvData);
                         setData(jsonData);
                         setLoading(false);
                         return true; // 成功したことを示すためにtrueを返す
+                    } else {
+                        console.error(`Error fetching data from URL ${url}: ${response.statusText}`);
+                        return false; // 失敗したことを示すためにfalseを返す
                     }
                 } catch (error) {
-                    console.error(`Error fetching data from S3 for file ${fileName}:`, error);
+                    console.error(`Error fetching data from URL ${url}:`, error);
                     return false; // 失敗したことを示すためにfalseを返す
                 }
             };
