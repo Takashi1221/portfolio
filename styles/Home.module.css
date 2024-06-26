@@ -109,6 +109,59 @@
     justify-content: center;
     align-items: center;
 }
+
+.rankBox {
+    height: 80%;
+    width: 90%;
+    margin-left: 40px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2), 0px 6px 20px rgba(0, 0, 0, 0.19);
+}
+
+.rankBox h3 {
+    text-align: center;
+    font-size: 1.6rem;
+    margin-bottom: 40px;
+}
+
+.rankContainer {
+    display: flex;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #45474b52;
+}
+
+.rankLeft .rankRight {
+    display: flex;
+    flex-direction: column;
+}
+
+.singleDigit {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-left: 10px;
+}
+  
+.doubleDigit {
+    font-size: 1.15rem;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.rankRight {
+    margin-left: 20px;
+}
+
+.rankTitle {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #03AED2;
+}
+
+.rankName {
+    font-size: 1.2rem;
+    color: #45474B;
+}
   
 .section {
     height: 100vh;

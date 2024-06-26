@@ -3,9 +3,33 @@ import Image from 'next/image';
 import Head from 'next/head';
 import Header from '../components/Header';
 import DataFetcher from '../components/DataFetcher';
+import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import TrendingFlatIcon from '@mui/icons-material/TrendingFlat';
+import TrendingDownIcon from '@mui/icons-material/TrendingDown';
+import FiberNewIcon from '@mui/icons-material/FiberNew';
 import styles from '/styles/Home.module.css';
 
 const Home: NextPage = () => {
+  const renderStatusIcon = (status: string) => {
+    const iconStyle = { fontSize: '2.25rem' };
+
+    switch (status) {
+      case 'UP':
+        return <TrendingUpIcon style={{ ...iconStyle, color: '#C80036' }} />;
+      case 'STAY':
+        return <TrendingFlatIcon style={{ ...iconStyle, color: '#379777' }} />;
+      case 'DOWN':
+        return <TrendingDownIcon style={{ ...iconStyle, color: '#003285' }} />;
+      case 'NEW':
+        return <FiberNewIcon style={{ ...iconStyle, color: '#DA7297' }} />;
+      default:
+        return <p style={{ fontSize: '2rem' }}>{status}</p>;
+    }
+  };
+
+  const getClassNameForIndex = (index: number) => {
+    return index < 9 ? 'singleDigit' : 'doubleDigit';
+  };
 
   
   return (
@@ -59,25 +83,22 @@ const Home: NextPage = () => {
             </div>
             <div className={styles.scrapeTool}>
               <DataFetcher>
-                {(data) => (
-                  <table>
-                    <thead>
-                      <tr>
-                        <th>Status</th>
-                        <th>Title</th>
-                        <th>Name</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {data.map((row, index) => (
-                        <tr key={index}>
-                          <td>{row.Status}</td>
-                          <td>{row.Title}</td>
-                          <td>{row.Name}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
+                {(data, source) => (
+                  <div className={styles.rankBox}>
+                    <h3>Daily Single Chart ({source})</h3>
+                        {data.map((row, index) => (
+                        <div className={styles.rankContainer}>
+                          <div className={styles.rankLeft}>
+                            <p className={styles[getClassNameForIndex(index)]}>{index+1}</p>
+                            <p>{renderStatusIcon(row.Status)}</p>
+                          </div>
+                          <div className={styles.rankRight}>
+                            <p className={styles.rankTitle}>{row.Title}</p>
+                            <p className={styles.rankName}>{row.Name}</p>
+                          </div>
+                        </div>
+                        ))}
+                  </div>
                 )}
               </DataFetcher>
             </div>
