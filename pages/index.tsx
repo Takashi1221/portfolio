@@ -87,7 +87,7 @@ const Home: NextPage = () => {
                   <div className={styles.rankBox}>
                     <h3>Daily Single Chart ({source})</h3>
                         {data.map((row, index) => (
-                        <div className={styles.rankContainer}>
+                        <div  key={index} className={styles.rankContainer}>
                           <div className={styles.rankLeft}>
                             <p className={styles[getClassNameForIndex(index)]}>{index+1}</p>
                             <p>{renderStatusIcon(row.Status)}</p>
