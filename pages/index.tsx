@@ -109,7 +109,7 @@ const Home: NextPage = () => {
           <h2>Section 4</h2>
         </section>
         <section id="section5" className={styles.sectionContact}>
-          <h2>Thanks for stopping by! <br></br>Can't wait to hear from you.</h2>
+          <h2>Thanks for stopping by! <br></br>Can&apos;t wait to hear from you.</h2>
           <ContactForm />
           <span>Your message will be sent via AWS API Gateway to a Lambda backend using SES.</span>
         </section>
