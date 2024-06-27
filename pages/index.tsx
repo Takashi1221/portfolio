@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Head from 'next/head';
 import Header from '../components/Header';
 import DataFetcher from '../components/DataFetcher';
+import ContactForm from '../components/ContactForm';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import TrendingFlatIcon from '@mui/icons-material/TrendingFlat';
 import TrendingDownIcon from '@mui/icons-material/TrendingDown';
@@ -46,7 +47,7 @@ const Home: NextPage = () => {
         <section id="section1" className={styles.section1}>
           <div className={styles['section1-content']}>
             <div className={styles['text-container']}>
-              <h1 className={styles.marginBottumA}>Hey I am Takashi Mio, junior web developer</h1>
+              <h1 className={styles.marginBottumA}>Hey I am Takashi Mio,<br></br>junior web developer</h1>
               <div>
                 <p className={styles.marginBottumA}>Here is a brief introduction of my portfolio.</p>
                 <p>I am also the operator of Netrennen, an online platform. I have expertise in both frontend and backend development.</p>
@@ -107,8 +108,10 @@ const Home: NextPage = () => {
         <section id="section4" className={styles.section}>
           <h2>Section 4</h2>
         </section>
-        <section id="section5" className={styles.section}>
-          <h2>Contact</h2>
+        <section id="section5" className={styles.sectionContact}>
+          <h2>Thanks for stopping by! <br></br>Can't wait to hear from you.</h2>
+          <ContactForm />
+          <span>Your message will be sent via AWS API Gateway to a Lambda backend using SES.</span>
         </section>
       </main>
     </div>

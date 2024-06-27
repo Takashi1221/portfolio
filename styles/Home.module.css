@@ -45,24 +45,28 @@
 }
 
 .text-container h1 {
-    font-size: 3.8rem;
+    font-size: 3rem;
+}
+
+.text-container p {
+    font-size: 1.5rem;
 }
 
 .skillRow {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
 }
 
 .jsLogo {
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     padding-bottom: 5px;
 }
 
 .pyLogo {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
 }
   
 .image-container {
@@ -116,6 +120,7 @@
     margin-left: 40px;
     padding: 20px;
     border-radius: 10px;
+    background-color: #fefefe;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2), 0px 6px 20px rgba(0, 0, 0, 0.19);
 }
 
@@ -172,4 +177,27 @@
     font-size: 2rem;
     color: #000;
     scroll-snap-align: start;
+}
+
+.sectionContact {
+    height: 100vh;
+    background-color: #45474B;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: #fff;
+    scroll-snap-align: start;
+}
+
+.sectionContact h2 {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.sectionContact span {
+    margin: 60px 0;
+    text-align: center;
+    font-size: 1.2rem;
 }
