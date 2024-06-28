@@ -1,0 +1,19 @@
+.accordionContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.accordionContainer h2 {
+    margin-bottom: 40px;
+}
+
+@media (max-width: 600px) {
+    .accordionContainer {
+        gap: 10px;
+    }
+    
+    .accordionContainer h2 {
+        margin-bottom: 10px;
+    }
+}

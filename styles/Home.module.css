@@ -22,7 +22,7 @@
     overflow: hidden;
 }
 
-.section1-content {
+.section1Content {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -37,18 +37,18 @@
     }
 }
   
-.text-container {
+.textContainer {
     display: flex;
     flex-direction: column;
     gap: 40px;
     flex: 1;
 }
 
-.text-container h1 {
+.textContainer h1 {
     font-size: 3rem;
 }
 
-.text-container p {
+.textContainer p {
     font-size: 1.5rem;
 }
 
@@ -69,14 +69,14 @@
     height: 30px;
 }
   
-.image-container {
+.imageContainer {
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
 }
   
-.image-container img {
+.imageContainer img {
     max-width: 100%;
     height: auto;
 }
@@ -85,8 +85,35 @@
     margin-bottom: 20px;
 }
 
-.marginBottumB {
-    margin-bottom: 120px;
+.section2 {
+    height: 100vh;
+    background-color: #F5F7F8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: #000;
+    scroll-snap-align: start;
+}
+
+.section2Content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+}
+
+.section2LeftContainer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section2RightContainer {
+    flex: 1;
+    display: flex;
+    margin-left: 100px;
 }
 
 .section3 {
@@ -100,7 +127,7 @@
     scroll-snap-align: start;
 }
 
-.section3-content {
+.section3Content {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -126,13 +153,13 @@
 
 .rankBox h3 {
     text-align: center;
-    font-size: 1.6rem;
-    margin-bottom: 40px;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
 }
 
 .rankContainer {
     display: flex;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     border-bottom: 1px solid #45474b52;
 }
 
@@ -153,6 +180,10 @@
     margin-left: 5px;
 }
 
+.rankIcon {
+    font-size: 2rem;
+}
+
 .rankRight {
     margin-left: 20px;
 }
@@ -164,19 +195,49 @@
 }
 
 .rankName {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: #45474B;
 }
-  
-.section {
+
+.section4 {
     height: 100vh;
-    background-color: #fff;
+    background-color: #379777;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 2rem;
-    color: #000;
+    color: #fff;
     scroll-snap-align: start;
+}
+
+.section4Content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 85%;
+}
+
+.section4LeftContainer .section4RightContainer {
+    flex: 1;
+    display: flex;
+}
+
+.section4LeftContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.section4LeftContainer h1 {
+    font-size: 3rem;
+}
+
+.section4LeftContainer p {
+    font-size: 1.5rem;
+}
+
+.section4RightContainer {
+    margin-left: 40px;
 }
 
 .sectionContact {
@@ -186,18 +247,288 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 2rem;
     color: #fff;
     scroll-snap-align: start;
 }
 
-.sectionContact h2 {
+.sectionContact span {
+    font-size: 3rem;
     text-align: center;
     margin-bottom: 60px;
 }
 
-.sectionContact span {
+.sectionContact p {
     margin: 60px 0;
     text-align: center;
     font-size: 1.2rem;
+}
+
+@media (max-width: 600px) {
+    .section1 {
+        height: 110vh;
+        background-color: #F4CE14;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        font-size: 1rem;
+        color: #000;
+        scroll-snap-align: start;
+        overflow: hidden;
+    }
+    
+    .section1Content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        transform: translateY(100%);
+        animation: slideDown 1.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+    }
+    
+    @keyframes slideDown {
+        to {
+            transform: translateY(0);
+        }
+    }
+      
+    .textContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        flex: 1;
+    }
+    
+    .textContainer h1 {
+        font-size: 1.8rem;
+        padding-top: 20px;
+    }
+    
+    .textContainer p {
+        font-size: 1rem;
+    }
+    
+    .skillRow {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+    
+    .jsLogo {
+        width: 30px;
+        height: 30px;
+        padding-bottom: 5px;
+    }
+    
+    .pyLogo {
+        width: 25px;
+        height: 25px;
+    }
+      
+    .imageContainer {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+      
+    .imageContainer img {
+        max-width: 50%;
+        height: auto;
+    }
+    
+    .marginBottumA {
+        margin-bottom: 20px;
+    }
+
+    .section2 {
+        height: 120vh;
+        background-color: #F5F7F8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        font-size: 1rem;
+        color: #000;
+        scroll-snap-align: start;
+    }
+    
+    .section2Content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .section2LeftContainer {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .aboutImage {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .section2RightContainer {
+        flex: 1;
+        display: flex;
+        margin-left: 0;
+    }
+
+    .section3 {
+        height: 150vh;
+        background-color: #F5F7F8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        font-size: 1rem;
+        color: #000;
+        scroll-snap-align: start;
+    }
+    
+    .section3Content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .scrapeTool {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .rankBox {
+        height: 50%;
+        width: 100%;
+        margin-left: 0;
+        padding: 10px;
+        border-radius: 10px;
+        background-color: #fefefe;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2), 0px 6px 20px rgba(0, 0, 0, 0.19);
+    }
+    
+    .rankBox h3 {
+        text-align: center;
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+    
+    .rankContainer {
+        display: flex;
+        margin-bottom: 5px;
+        border-bottom: 1px solid #45474b52;
+    }
+    
+    .rankLeft .rankRight {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .singleDigit {
+        font-size: 0.9rem;
+        font-weight: bold;
+        margin-left: 4px;
+    }
+      
+    .doubleDigit {
+        font-size: 0.9rem;
+        font-weight: bold;
+        margin-left: 2px;
+    }
+
+    .rankIcon {
+        font-size: 1.2rem;
+    }
+    
+    .rankRight {
+        margin-left: 10px;
+    }
+    
+    .rankTitle {
+        font-size: 0.8rem;
+        font-weight: bold;
+        color: #03AED2;
+    }
+    
+    .rankName {
+        font-size: 0.8rem;
+        color: #45474B;
+    }
+
+    .section4 {
+        height: 110vh;
+        background-color: #379777;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2rem;
+        color: #fff;
+        scroll-snap-align: start;
+    }
+    
+    .section4Content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        width: 85%;
+    }
+    
+    .section4LeftContainer .section4RightContainer {
+        flex: 1;
+        display: flex;
+    }
+    
+    .section4LeftContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .section4LeftContainer h1 {
+        font-size: 1.4rem;
+    }
+    
+    .section4LeftContainer p {
+        font-size: 0.9rem;
+    }
+    
+    .section4RightContainer {
+        margin-left: 0;
+    }
+
+    .sectionContact {
+        height: 100vh;
+        background-color: #45474B;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        color: #fff;
+        scroll-snap-align: start;
+    }
+    
+    .sectionContact span {
+        font-size: 1.2rem;
+        text-align: center;
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+    
+    .sectionContact p {
+        margin: 60px 0;
+        text-align: center;
+        font-size: 0.9rem;
+    }
 }

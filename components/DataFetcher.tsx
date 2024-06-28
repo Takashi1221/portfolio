@@ -19,10 +19,8 @@ const DataFetcher: React.FC<DataFetcherProps> = ({ children }) => {
         const formatDate = (date: Date, forFileName: boolean = true) => {
             const year = date.getFullYear();
             const month = (`0${date.getMonth() + 1}`).slice(-2); // 月は0から始まるため+1
-            const monthSource = (`0${date.getMonth() + 1}`).slice(-1);
             const day = (`0${date.getDate()}`).slice(-2);
-            const daySource = (`0${date.getDate() -1}`).slice(-2);
-            return forFileName ? `${year}${month}${day}.csv` : `${monthSource}/${daySource}`;
+            return forFileName ? `${year}${month}${day}.csv` : `${year}/${month}/${day}`;
         };
 
         const todayFileName = formatDate(today);
@@ -35,36 +33,37 @@ const DataFetcher: React.FC<DataFetcherProps> = ({ children }) => {
         const fetchData = async () => {
             const [todayFileName, yesterdayFileName, todayFormatted, yesterdayFormatted] = getFileName();
 
-            const fetchFile = async (fileName: string) => {
+            const fetchFile = async (fileName: string, formattedDate: string) => {
                 const url = `https://scrape-portfolio.s3.eu-central-1.amazonaws.com/${fileName}`;
         
-                try {
-                    const response = await fetch(url);
-                    if (response.ok) {
-                        const csvData = await response.text();
-                        const jsonData = await csv().fromString(csvData);
-                        setData(jsonData);
-                        setLoading(false);
-                        return { success: true, source: fileName.includes(todayFileName) ? todayFormatted : yesterdayFormatted };
-                    } else {
-                        console.error(`Error fetching data from URL ${url}: ${response.statusText}`);
-                        return { success: false, source: '' };
-                    }
-                } catch (error) {
-                    console.error(`Error fetching data from URL ${url}:`, error);
-                    return { success: false, source: '' };
+                const response = await fetch(url);
+                if (response.ok) {
+                    const csvData = await response.text();
+                    const jsonData = await csv().fromString(csvData);
+                    setData(jsonData);
+                    setSource(formattedDate);
+                    setLoading(false);
+                    return true;
+                } else {
+                    console.error(`Error fetching data from URL ${url}: ${response.statusText}`);
+                    throw new Error(`Failed to fetch ${fileName}`);
                 }
             };
 
-            // 今日の日付のファイルをまず試す
-            let result = await fetchFile(todayFileName);
-
-            // 今日のファイルがなければ昨日の日付のファイルを試す
-            if (!result.success) {
-            await fetchFile(yesterdayFileName);
+            try {
+                // 今日の日付のファイルをまず試す
+                await fetchFile(todayFileName, todayFormatted);
+            } catch (error) {
+                console.error(error);
+                try {
+                    // 今日のファイルがなければ昨日の日付のファイルを試す
+                    await fetchFile(yesterdayFileName, yesterdayFormatted);
+                } catch (error) {
+                    console.error(error);
+                    setError('Failed to fetch data');
+                    setLoading(false);
+                }
             }
-
-            setSource(result.source);
         };
 
         fetchData();
